@@ -7,13 +7,13 @@ public class metodo2 {
         System.out.println("Informe seu nome : ");
         String nome = leitor.next();
 
-        if (nome.equals("Osmar")){
+        if (nome.equalsIgnoreCase("Osmar")){
             osmarHenrique();
-        } else if (nome.equals("Patrick")) {
+        } else if (nome.equalsIgnoreCase("Patrick")) {
             patrickRuchinski();
-        } else if (nome.equals("Diogo")) {
+        } else if (nome.equalsIgnoreCase("Diogo")) {
             diogoFatuetibennerqz();
-        } else if (nome.equals("Eduardo")) {
+        } else if (nome.equalsIgnoreCase("Eduardo")) {
             eduardoScheibt();
         }
 
