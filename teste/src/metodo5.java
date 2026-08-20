@@ -31,26 +31,13 @@ public class metodo5 {
         leitor.close();
     }
     public static void numeroMaisPerto (double b, double n1, double n2){
-        double diferenca1 = 0;
-        double diferenca2 = 0;
-        if (n1 > b ){
-           diferenca1 = n1 - b;
-        } else if (n1 < b) {
-            diferenca1 = b - n1;
-        } else if (n1 == b) {
-            diferenca1 = 0;
-        }
-        if (n2 > b ){
-            diferenca2 = n2 - b;
-        } else if (n2 < b) {
-            diferenca2 = b - n2;
-        } else if (n2 == b) {
-            diferenca2 = 0;
-        }
+        double diferenca1 = Math.abs(n1 - b);
+        double diferenca2 = Math.abs(n2 - b);
+
         if (diferenca1 < diferenca2){
-            System.out.println("O número mais próximo da base é o primeiro");
+            System.out.println("O número mais próximo da base é "+ n1);
         } else if (diferenca2 < diferenca1) {
-            System.out.println("O número mais próximo da base é o segundo");
+            System.out.println("O número mais próximo da base é "+ n2);
         } else if (diferenca1 == diferenca2) {
             System.out.println("Ambos estão a mesma distância da base");
         }
