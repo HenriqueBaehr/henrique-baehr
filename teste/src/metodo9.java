@@ -22,13 +22,6 @@ public class metodo9 {
         leitor.close();
     }
     public static boolean verdadeiroOuFalso (int valor){
-        if(valor % 2 == 0){
-            boolean verdadeiroOuFalso = true;
-
-        } else {
-            boolean verdadeiroOuFalso = false;
-
-        }
-        return verdadeiroOuFalso;
+        return valor % 2 == 0;
     }
 }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class revisao5 {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        int array[] = {1,2,3,4,5};
+        int [] array = {1,2,3,4,5};
         int n = 0;
         int maior = array[0];
         int menor = array[0];
@@ -19,7 +19,7 @@ public class revisao5 {
             soma = soma + array[l];
             n++;
         }
-        double media = soma/(n);
+        double media = soma/n;
 
         System.out.println("O maior número é : "+ maior);
         System.out.println("O menor número é : "+ menor);
