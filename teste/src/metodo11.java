@@ -3,15 +3,11 @@ import java.util.Scanner;
 public class metodo11 {
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
-        int n = 0;
+        double vetor [] = {5, 6, 4, 12, -5, 0, 84};
 
-        int [] vetor = new int[3];
-        for (int l = 0;l<3;l++){
-            System.out.println("Informe um valor : ");
-            vetor[l] = leitor.nextInt();
-            System.out.println(maiorElemento(vetor));
-        }
-
+        System.out.println(maiorElemento(vetor));
+        System.out.println(menorElemento(vetor));
+        System.out.println(mediaElementos(vetor));
 
 
 
@@ -29,13 +25,31 @@ public class metodo11 {
 
         leitor.close();
     }
-    public static int maiorElemento (int [] vetor){
-        int maior = Integer.MAX_VALUE;
-        if (vetor[0])
-
+    public static double maiorElemento (double vetor [] ){
+        double maiorValor = Double.MIN_VALUE;
+        for (int i = 0; i< vetor.length; i++){
+            if (vetor [i]> maiorValor){
+                maiorValor = vetor[i];
+            }
+        }
+            return maiorValor;
     }
-    public static int menorElemento (int [] vetor){
-
+    public static double menorElemento (double vetor [] ) {
+        double menorValor = Double.MAX_VALUE;
+        for (int i = 0; i < vetor.length; i++) {
+            if (vetor[i] < menorValor) {
+                menorValor = vetor[i];
+            }
+        }
+        return menorValor;
     }
-    public static double mediaElementos (int [] vetor)
+        public static double mediaElementos (double vetor []){
+            double soma = 0;
+
+            for (int i = 0; i < vetor.length; i++) {
+                soma += vetor[i];
+            }
+            double media = soma / vetor.length;
+            return media;
+    }
 }
