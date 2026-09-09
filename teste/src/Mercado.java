@@ -3,5 +3,15 @@ public class Mercado {
     int numeroDeMacasVendidasPorAno;
     double precoDeVendaDasMacas;
     int numeroDeLaranjasVendidasPorAno;
-    double PrecoDeVendaDasLaranjas;
+    double precoDeVendaDasLaranjas;
+    public  double descobrirReceitaMacas(){
+        return (numeroDeMacasVendidasPorAno*precoDeVendaDasMacas);
+    }
+    public double descobrirReceitaLaranjas(){
+        return (numeroDeLaranjasVendidasPorAno*precoDeVendaDasLaranjas);
+    }
+    public double descobrirReceitaTotal(){
+        return (numeroDeMacasVendidasPorAno*precoDeVendaDasMacas+numeroDeLaranjasVendidasPorAno*precoDeVendaDasLaranjas);
+    }
 }
+

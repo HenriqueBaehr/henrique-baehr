@@ -13,8 +13,10 @@ public class Funcionario {
     public String obterNomeCompleto(){
         return (nome+" "+sobrenome);
     }
-    public double reajustarSalario(double reajuste){
-        return (salarioMensal+reajuste);
+    public void reajustarSalario(double percentualAumento){
+        double aumento = salarioMensal*percentualAumento/100;
+        double salarioFinal =salarioMensal + aumento;
+        salarioMensal = salarioFinal;
     }
 
 }
