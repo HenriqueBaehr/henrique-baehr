@@ -25,27 +25,59 @@ public class Franquia {
         System.out.println("O mercado " +unidadeDeJoinville.nome+ " vendeu " +unidadeDeJoinville.numeroDeMacasVendidasPorAno+ " maças por ano a um preço de " +unidadeDeJoinville.precoDeVendaDasMacas+ " reais e " +unidadeDeJoinville.numeroDeLaranjasVendidasPorAno+ " laranjas por ano a um preço de " +unidadeDeJoinville.precoDeVendaDasLaranjas+ " reais");
         System.out.println("O mercado " +unidadeDeFlorianopolis.nome+ " vendeu " +unidadeDeFlorianopolis.numeroDeMacasVendidasPorAno+ " maças por ano a um preço de " +unidadeDeFlorianopolis.precoDeVendaDasMacas+ " reais e " +unidadeDeFlorianopolis.numeroDeLaranjasVendidasPorAno+ " laranjas por ano a um preço de " +unidadeDeFlorianopolis.precoDeVendaDasLaranjas+ " reais");
 
-        if (unidadeDeBlumenau.descobrirReceitaMacas()>unidadeDeJoinville.descobrirReceitaMacas() && unidadeDeBlumenau.descobrirReceitaMacas()>unidadeDeFlorianopolis.descobrirReceitaMacas()){
-            System.out.println("O mercado que mais obteve receita com as vendas das maças foi o de Blumenau com "+unidadeDeBlumenau.descobrirReceitaMacas()+" reais ganhos");
-        } else if (unidadeDeJoinville.descobrirReceitaMacas()>unidadeDeBlumenau.descobrirReceitaMacas() && unidadeDeJoinville.descobrirReceitaMacas()>unidadeDeFlorianopolis.descobrirReceitaMacas()) {
-            System.out.println("O mercado que mais obteve receita com as vendas das maças foi o de Joinville com "+unidadeDeJoinville.descobrirReceitaMacas()+" reais ganhos");
-        } else if (unidadeDeFlorianopolis.descobrirReceitaMacas()>unidadeDeBlumenau.descobrirReceitaMacas() && unidadeDeFlorianopolis.descobrirReceitaMacas()>unidadeDeJoinville.descobrirReceitaMacas()) {
-            System.out.println("O mercado que mais obteve receita com as vendas das maças foi o de Florianopolis com "+unidadeDeFlorianopolis.descobrirReceitaMacas()+" reais ganhos");
+        Mercado mercados[] = {unidadeDeBlumenau, unidadeDeJoinville, unidadeDeFlorianopolis};
+
+        double maiorReceitaMacas = 0;
+        Mercado mercadoMaiorReceitaMacas = null;
+
+        for (int i = 0; i < mercados.length; i++){
+            if (mercados[i].calcularReceitaTotal() > maiorReceitaMacas){
+                maiorReceitaMacas = mercados[i].calcularReceitaMacas();
+                mercadoMaiorReceitaMacas = mercados[i];
+            }
+
         }
-        if (unidadeDeBlumenau.descobrirReceitaLaranjas()<unidadeDeJoinville.descobrirReceitaLaranjas() && unidadeDeBlumenau.descobrirReceitaLaranjas()<unidadeDeFlorianopolis.descobrirReceitaLaranjas()) {
-            System.out.println("O mercado que menos obteve receita com as vendas das laranjas foi o de Blumenau com " + unidadeDeBlumenau.descobrirReceitaLaranjas() + " reais ganhos");
-        } else if (unidadeDeJoinville.descobrirReceitaLaranjas()<unidadeDeBlumenau.descobrirReceitaLaranjas() && unidadeDeJoinville.descobrirReceitaLaranjas()<unidadeDeFlorianopolis.descobrirReceitaLaranjas()) {
-            System.out.println("O mercado que menos obteve receita com as vendas das laranjas foi o de Joinville com " + unidadeDeJoinville.descobrirReceitaLaranjas() + " reais ganhos");
-        } else if (unidadeDeFlorianopolis.descobrirReceitaLaranjas()<unidadeDeBlumenau.descobrirReceitaLaranjas() && unidadeDeFlorianopolis.descobrirReceitaLaranjas()<unidadeDeJoinville.descobrirReceitaLaranjas()) {
-            System.out.println("O mercado que menos obteve receita com as vendas das laranjas foi o de Florianopolis com " + unidadeDeFlorianopolis.descobrirReceitaLaranjas() + " reais ganhos");
+        System.out.println("Quem teve a maior receita das maçãs: " + mercadoMaiorReceitaMacas.nome + ", faturou: " + mercadoMaiorReceitaMacas.calcularReceitaMacas() + " reais");
+
+        double menorReceitasLaranjas = Double.MAX_VALUE;
+        Mercado mercadoMenorReceitLaranjas = null;
+
+        for (int i = 0; i < mercados.length; i++){
+            if (mercados[i].calcularReceitaLaranjas() < menorReceitasLaranjas){
+                menorReceitasLaranjas = mercados[i].calcularReceitaLaranjas();
+                mercadoMenorReceitLaranjas = mercados[i];
+            }
+        }
+        System.out.println("Quem teve a menor receita de laranjas: " + mercadoMenorReceitLaranjas.nome + ", faturando: " + menorReceitasLaranjas + " reais");
+
+        double segundaMaiorReceitaTotal = 0;
+
+        Mercado mercadoSegundaMaiorReceitaTotal = null;
+
+        double maiorReceitaTotal = 0;
+
+        for (int i = 0; i < mercados.length ; i++){
+            if (mercados[i].calcularReceitaTotal() > segundaMaiorReceitaTotal && mercados[i].calcularReceitaTotal() != maiorReceitaTotal){
+                segundaMaiorReceitaTotal = mercados[i].calcularReceitaTotal();
+                mercadoSegundaMaiorReceitaTotal = mercados[i];
+            }
+        }
+        System.out.println("Mercado que teve a segunda maior receita total: " + mercadoSegundaMaiorReceitaTotal.nome + ", faturando: " + segundaMaiorReceitaTotal + " reais");
+
+        double receitaGeralMacas = 0;
+        double receitaGeralLaranjas = 0;
+
+        for (int i = 0; i < mercados.length; i++){
+            receitaGeralLaranjas += mercados[i].calcularReceitaLaranjas();
+            receitaGeralMacas += mercados[i].calcularReceitaMacas();
         }
 
-        if (unidadeDeBlumenau.descobrirReceitaTotal()>unidadeDeJoinville.descobrirReceitaTotal() && unidadeDeBlumenau.descobrirReceitaTotal()<unidadeDeFlorianopolis.descobrirReceitaTotal()){
-            System.out.println("A loja de Blumenau teve a segunda maior receita total com " + unidadeDeBlumenau.descobrirReceitaTotal() + " reais faturados");
-        } else if (unidadeDeBlumenau.descobrirReceitaTotal()>unidadeDeFlorianopolis.descobrirReceitaTotal() && unidadeDeBlumenau.descobrirReceitaTotal()<unidadeDeJoinville.descobrirReceitaTotal()) {
-            System.out.println("A loja de Blumenau teve a segunda maior receita total com " + unidadeDeBlumenau.descobrirReceitaTotal() + " reais faturados");
-        } else if (unidadeDeJoinville.descobrirReceitaTotal()>unidadeDeBlumenau.descobrirReceitaTotal() && unidadeDeJoinville.descobrirReceitaTotal()<unidadeDeFlorianopolis.descobrirReceitaTotal()) {
-            System.out.println(System.out.println("A loja de Joinville teve a segunda maior receita total com " + unidadeDeJoinville.descobrirReceitaTotal() + " reais faturados");
+        if (receitaGeralMacas > receitaGeralLaranjas){
+            System.out.println("A franquia teve uma receita maior com maçãs");
+        } else if (receitaGeralLaranjas > receitaGeralMacas) {
+            System.out.println("A franquia teve uma receita maior com laranjas");
+        } else {
+            System.out.println("As receitas foram iguais");
         }
 
 

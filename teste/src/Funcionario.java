@@ -7,6 +7,7 @@ public class Funcionario {
 
     double salarioMensal;
 
+
     public double obterSalarioAnual(){
         return salarioMensal*12;
     }
@@ -15,7 +16,7 @@ public class Funcionario {
     }
     public void reajustarSalario(double percentualAumento){
         double aumento = salarioMensal*percentualAumento/100;
-        double salarioFinal =salarioMensal + aumento;
+        double salarioFinal = salarioMensal + aumento;
         salarioMensal = salarioFinal;
     }
 
