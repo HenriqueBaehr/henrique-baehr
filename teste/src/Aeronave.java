@@ -6,11 +6,11 @@ public class Aeronave {
     private double queimaDeCombustivelPorMinuto;
 
     public Aeronave(String modelo, int passageiros, double velocidadeMaxima, double capacidadeDeCombustivel, double queimaDeCombustivelPorMinuto) {
-        this.modelo = modelo;
-        this.passageiros = passageiros;
-        this.velocidadeMaxima = velocidadeMaxima;
-        this.capacidadeDeCombustivel = capacidadeDeCombustivel;
-        this.queimaDeCombustivelPorMinuto = queimaDeCombustivelPorMinuto;
+        setModelo(modelo);
+        setPassageiros(passageiros);
+        setVelocidadeMaxima(velocidadeMaxima);
+        setCapacidadeDeCombustivel(capacidadeDeCombustivel);
+        setQueimaDeCombustivelPorMinuto(queimaDeCombustivelPorMinuto);
     }
 
     public double calcularAutonomia(){
@@ -22,7 +22,11 @@ public class Aeronave {
     }
 
     public void setModelo(String modelo) {
-        this.modelo = modelo;
+        if (modelo == null || modelo.isBlank()){
+            System.out.println("Erro, modelo da aeronave inválida");
+        }else {
+            this.modelo = modelo;
+        }
     }
 
     public int getPassageiros() {
@@ -30,15 +34,23 @@ public class Aeronave {
     }
 
     public void setPassageiros(int passageiros) {
-        this.passageiros = passageiros;
+        if (passageiros <= 0){
+            System.out.println("Erro, número inválido");
+        }else {
+            this.passageiros = passageiros;
+        }
     }
 
     public double getVelocidadeMaxima() {
-        return velocidadeMaxima;
+            return velocidadeMaxima;
     }
 
     public void setVelocidadeMaxima(double velocidadeMaxima) {
-        this.velocidadeMaxima = velocidadeMaxima;
+        if (velocidadeMaxima <= 0){
+            System.out.println("Erro, número inválido");
+        }else {
+            this.velocidadeMaxima = velocidadeMaxima;
+        }
     }
 
     public double getCapacidadeDeCombustivel() {
@@ -46,7 +58,11 @@ public class Aeronave {
     }
 
     public void setCapacidadeDeCombustivel(double capacidadeDeCombustivel) {
-        this.capacidadeDeCombustivel = capacidadeDeCombustivel;
+        if (capacidadeDeCombustivel <= 0){
+            System.out.println("Erro, número inválido");
+        }else {
+            this.capacidadeDeCombustivel = capacidadeDeCombustivel;
+        }
     }
 
     public double getQueimaDeCombustivelPorMinuto() {
@@ -54,7 +70,11 @@ public class Aeronave {
     }
 
     public void setQueimaDeCombustivelPorMinuto(double queimaDeCombustivelPorMinuto) {
-        this.queimaDeCombustivelPorMinuto = queimaDeCombustivelPorMinuto;
+        if (queimaDeCombustivelPorMinuto <= 0){
+            System.out.println("Erro, número inválido");
+        }else {
+            this.queimaDeCombustivelPorMinuto = queimaDeCombustivelPorMinuto;
+        }
     }
 
     public double calcularDistanciaMaxima(){
