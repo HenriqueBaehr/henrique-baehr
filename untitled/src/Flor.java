@@ -15,7 +15,7 @@ public class Flor {
 
     public void setNomeDaFlor(String nomeDaFlor) {
         if (nomeDaFlor == null || nomeDaFlor.isBlank()){
-            System.out.println("Erro, nome de flor inválido");
+            throw new IllegalArgumentException("Erro, nome de flor inválido");
         }else {
             this.nomeDaFlor = nomeDaFlor;
         }
@@ -39,7 +39,7 @@ public class Flor {
 
     public void setNomeCliente(String nomeCliente) {
         if (nomeCliente == null || nomeCliente.isBlank()){
-            System.out.println("Erro, nome de cliente inválido");
+            throw new IllegalArgumentException("Erro, nome de cliente inválido");
         }else {
             this.nomeCliente = nomeCliente;
         }
