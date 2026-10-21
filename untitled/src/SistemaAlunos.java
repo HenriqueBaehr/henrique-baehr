@@ -10,6 +10,11 @@ public class SistemaAlunos {
     }
 
     public void adicionarAluno(Aluno a){
+        for (Aluno aluno : alunos) {
+            if (aluno.getMatricula().equals(a.getMatricula())){
+                throw new IllegalArgumentException("Erro no cadastro da matrícula");
+            }
+        }
         alunos.add(a);
     }
 
@@ -31,5 +36,17 @@ public class SistemaAlunos {
 
 
     }
+    public Aluno bucarAlunoMatricula(String matricula){
+
+
+        for (Aluno a : alunos){
+            if (a.getMatricula() .equals(matricula)){
+                return a;
+            }
+        }
+        return null;
+    }
+
+
 
 }
