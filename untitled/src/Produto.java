@@ -5,10 +5,10 @@ public class Produto {
     private int quantidade;
 
     public Produto(String marca, String modelo, double preco, int quantidade) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.preco = preco;
-        this.quantidade = quantidade;
+       setMarca(marca);
+       setModelo(modelo);
+       setPreco(preco);
+       setQuantidade(quantidade);
     }
 
     public String getMarca() {
@@ -70,14 +70,16 @@ public class Produto {
     }
 
     public void aumentarQuantidadeDoEstoque(int aumento){
-        quantidade = quantidade + aumento;
+        if (aumento <= 0){
+            throw new IllegalArgumentException("Erro, quantidade de aumento inválido");
+        }
+            quantidade = quantidade + aumento;
     }
 
     public void diminuirQuantidadeDoEstoque(int quantidadeDeVenda){
         if (quantidade >= quantidadeDeVenda){
             quantidade = quantidade - quantidadeDeVenda;
-        }else{
-            throw new IllegalArgumentException("Erro, quantidade de venda inválida");
         }
+            throw new IllegalArgumentException("Erro, quantidade de venda inválida");
     }
 }

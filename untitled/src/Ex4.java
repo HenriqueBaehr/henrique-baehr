@@ -12,6 +12,8 @@ public class Ex4 {
         Produto p9 = new Produto("amanco", "cano pvc", 32.00, 16);
         Produto p10 = new Produto("krona", "registro pvc", 19.90, 14);
 
+
+
         Loja l1 = new Loja();
 
         l1.adicionarProdutos(p1);
