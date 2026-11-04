@@ -40,28 +40,35 @@ public class Conta {
     }
 
     public void sacarValor(double saque){
-        if (saldo < saque){
+        if (saldo < saque || saque <= 0){
             throw new IllegalArgumentException("Erro, quantidade de saque inválido");
-        }else{
-            saldo = saldo - saque;
         }
+            saldo = saldo - saque;
     }
 
     public void depositarValor(double deposito){
         if (deposito <= 0){
             throw new IllegalArgumentException("Erro, valor depositado inválido");
-        }else{
-            saldo = saldo + deposito;
         }
+            saldo = saldo + deposito;
     }
 
-    public void transferirValor(double transferir){
-        if (saldo < transferir){
+    public void transferirValor(double transferencia, Conta contaDestino){
+        if (saldo < transferencia || transferencia <= 0 || contaDestino == null){
             throw new IllegalArgumentException("Erro, quantidade de transferência inválida");
-        }else{
-            saldo = saldo - transferir;
         }
+        saldo -= transferencia;
+        contaDestino.saldo += transferencia;
     }
+
+    public double simularInvestimento(double valorInvestido, int tempo){
+        if (valorInvestido <= 0 || tempo <= 0){
+            throw new IllegalArgumentException("Erro, tempo ou valor inválido");
+        }
+        double montante = valorInvestido*Math.pow(1.01, tempo);
+        return montante;
+    }
+
 
 
 
