@@ -13,7 +13,7 @@ public class Conta {
 
     public void setNomeTitular(String nomeTitular) {
         if (nomeTitular == null || nomeTitular.isBlank()){
-            throw new IllegalArgumentException("Erro, nome de titualr inválido");
+            throw new IllegalArgumentException("Erro, nome de titular inválido");
         }else {
             this.nomeTitular = nomeTitular;
         }
@@ -43,14 +43,14 @@ public class Conta {
         if (saldo < saque || saque <= 0){
             throw new IllegalArgumentException("Erro, quantidade de saque inválido");
         }
-            saldo = saldo - saque;
+            saldo -= saque;
     }
 
     public void depositarValor(double deposito){
         if (deposito <= 0){
             throw new IllegalArgumentException("Erro, valor depositado inválido");
         }
-            saldo = saldo + deposito;
+            saldo += deposito;
     }
 
     public void transferirValor(double transferencia, Conta contaDestino){
