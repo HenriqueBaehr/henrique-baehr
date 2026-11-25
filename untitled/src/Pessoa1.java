@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Pessoa1 {
 
@@ -30,6 +31,10 @@ public class Pessoa1 {
             throw new IllegalArgumentException("Data de nascimento inválida");
         }
         this.dataNascimento = dataNascimento;
+    }
+
+    public int obterIdade() {
+        return Period.between(dataNascimento, LocalDate.now()).getYears();
     }
 
     @Override
